@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readboxd</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Readboxd</h1>
+    </header>
+
+    <main class="container">
+        <!-- Área 1: Formulário de Cadastro -->
+        <section class="card-area form-box">
+            <h2>Adicionar Novo Livro</h2>
+            <form id="book-form">
+                <div class="input-group">
+                    <label for="book-title">Nome do Livro:</label>
+                    <input type="text" id="book-title" required placeholder="Ex: O Hobbit">
+                </div>
+
+                <div class="input-group">
+                    <label for="book-author">Autor:</label>
+                    <input type="text" id="book-author" required placeholder="Ex: J.R.R. Tolkien">
+                </div>
+
+                <div class="input-group">
+                    <label for="book-synopsis">Sinopse (Opcional):</label>
+                    <textarea id="book-synopsis" placeholder="Breve resumo do livro..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="book-cover">Link da Capa (URL):</label>
+                    <input type="url" id="book-cover" required placeholder="https://linkdaimagem.com">
+                </div>
+
+                <div class="input-group">
+                    <label>Status de Leitura:</label>
+                    <div class="status-selector">
+                        <div class="status-btn btn-completed" data-status="completed">Lido</div>
+                        <div class="status-btn btn-reading" data-status="reading">Em Andamento</div>
+                        <div class="status-btn btn-not-started" data-status="not-started">Não Iniciado</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Sua Avaliação:</label>
+                    <div class="star-rating">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-add">Adicionar Livro</button>
+            </form>
+        </section>
+
+        <!-- Área 2: Exibição dos Livros -->
+        <section class="card-area list-box">
+            <h2>Meus Livros</h2>
+            
+            <!-- Painel de Contadores -->
+            <div id="counters-container" class="counters-grid">
+                <div class="counter-card active" data-filter="all">
+                    <span class="counter-num" id="count-total">0</span>
+                    <span class="counter-label">Total</span>
+                </div>
+                <div class="counter-card status-completed" data-filter="completed">
+                    <span class="counter-num" id="count-completed">0</span>
+                    <span class="counter-label">Lidos</span>
+                </div>
+                <div class="counter-card status-reading" data-filter="reading">
+                    <span class="counter-num" id="count-reading">0</span>
+                    <span class="counter-label">Em Andamento</span>
+                </div>
+                <div class="counter-card status-not-started" data-filter="not-started">
+                    <span class="counter-num" id="count-not-started">0</span>
+                    <span class="counter-label">Não Iniciados</span>
+                </div>
+            </div>
+
+            <!-- Barra de Pesquisa Dinâmica -->
+            <div class="search-group">
+                <input type="text" id="search-book" placeholder="Pesquisar livros pelo título...">
+            </div>
+
+            <div id="books-container" class="books-grid">
+                <!-- Os cards de livros serão inseridos aqui via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados &copy; 2026.</p>
+    </footer>
+
+</body>
+</html>
