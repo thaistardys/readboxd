@@ -1,10 +1,6 @@
 # 🎬 Readboxd
 
-<p align="center">
-  <img src="https://shields.io" alt="Mobile First">
-  <img src="https://shields.io" alt="Flexbox">
-  <img src="https://shields.io" alt="JavaScript Vanilla">
-</p>
+
 
 > Um organizador de leituras pessoal e responsivo inspirado no design do Letterboxd. Adicione, edite, filtre e avalie seus livros favoritos em uma interface moderna e fluida.
 
