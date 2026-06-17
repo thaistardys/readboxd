@@ -14,60 +14,20 @@
     </header>
 
     <main class="container">
-        <!-- Área 1: Formulário de Cadastro -->
-        <section class="card-area form-box">
-            <h2>Adicionar Novo Livro</h2>
-            <form id="book-form">
-                <div class="input-group">
-                    <label for="book-title">Nome do Livro:</label>
-                    <input type="text" id="book-title" required placeholder="Ex: O Hobbit">
-                </div>
-
-                <div class="input-group">
-                    <label for="book-author">Autor:</label>
-                    <input type="text" id="book-author" required placeholder="Ex: J.R.R. Tolkien">
-                </div>
-
-                <div class="input-group">
-                    <label for="book-synopsis">Sinopse (Opcional):</label>
-                    <textarea id="book-synopsis" placeholder="Breve resumo do livro..."></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label for="book-cover">Link da Capa (URL):</label>
-                    <input type="url" id="book-cover" required placeholder="https://linkdaimagem.com">
-                </div>
-
-                <div class="input-group">
-                    <label>Status de Leitura:</label>
-                    <div class="status-selector">
-                        <div class="status-btn btn-completed" data-status="completed">Lido</div>
-                        <div class="status-btn btn-reading" data-status="reading">Em Andamento</div>
-                        <div class="status-btn btn-not-started" data-status="not-started">Não Iniciado</div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>Sua Avaliação:</label>
-                    <div class="star-rating">
-                        <span class="star" data-value="1">&#9733;</span>
-                        <span class="star" data-value="2">&#9733;</span>
-                        <span class="star" data-value="3">&#9733;</span>
-                        <span class="star" data-value="4">&#9733;</span>
-                        <span class="star" data-value="5">&#9733;</span>
-                    </div>
-                </div>
-
-                <button type="submit" id="btn-add">Adicionar Livro</button>
-            </form>
+        <!-- Barra de Ações: Busca + Botão Novo -->
+        <section class="actions-bar">
+            <div class="search-group">
+                <input type="text" id="search-book" placeholder="Pesquisar livros pelo título...">
+            </div>
+            <button type="button" id="btn-open-modal">+ Novo</button>
         </section>
 
-        <!-- Área 2: Exibição dos Livros -->
+        <!-- Área de Exibição dos Livros -->
         <section class="card-area list-box">
             <h2>Meus Livros</h2>
             
             <!-- Painel de Contadores -->
-            <div id="counters-container" class="counters-grid">
+            <div class="counters-grid">
                 <div class="counter-card active" data-filter="all">
                     <span class="counter-num" id="count-total">0</span>
                     <span class="counter-label">Total</span>
@@ -86,15 +46,73 @@
                 </div>
             </div>
 
-            <!-- Barra de Pesquisa Dinâmica -->
-            <div class="search-group">
-                <input type="text" id="search-book" placeholder="Pesquisar livros pelo título...">
-            </div>
-
             <div id="books-container" class="books-grid">
-                <!-- Os cards de livros serão inseridos aqui via JS -->
+                <!-- Cards inseridos via JS -->
             </div>
         </section>
+
+        <!-- Modal do Formulário -->
+        <div id="book-modal" class="modal-overlay">
+            <div class="modal-content card-area">
+                <div class="modal-header">
+                    <h2 id="modal-title">Adicionar Novo Livro</h2>
+                    <button type="button" id="btn-close-modal">&times;</button>
+                </div>
+                <form id="book-form">
+                    <div class="input-group">
+                        <label for="book-title">Nome do Livro:</label>
+                        <input type="text" id="book-title" required placeholder="Ex: O Hobbit">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="book-author">Autor:</label>
+                        <input type="text" id="book-author" required placeholder="Ex: J.R.R. Tolkien">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="book-synopsis">Sinopse (Opcional):</label>
+                        <textarea id="book-synopsis" placeholder="Breve resumo do livro..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="book-cover">Link da Capa (URL):</label>
+                        <input type="url" id="book-cover" required placeholder="https://linkdaimagem.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Status de Leitura:</label>
+                        <div class="status-selector">
+                            <button type="button" class="status-btn btn-completed" data-status="completed">Lido</button>
+                            <button type="button" class="status-btn btn-reading" data-status="reading">Em Andamento</button>
+                            <button type="button" class="status-btn btn-not-started" data-status="not-started">Não Iniciado</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Sua Avaliação:</label>
+                        <div class="star-rating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btn-submit-form">Adicionar Livro</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Alerta Customizado -->
+        <div id="alert-modal" class="modal-overlay alert-z-index">
+            <div class="modal-content card-area alert-modal-content">
+                <div class="alert-icon">⚠️</div>
+                <h2>Livro Já Cadastrado</h2>
+                <p id="alert-modal-message"></p>
+                <button type="button" id="btn-close-alert">Entendido</button>
+            </div>
+        </div>
     </main>
 
     <footer>
