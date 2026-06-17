@@ -1,6 +1,6 @@
 # 🎬 Readboxd
 
-
+▶️ **[Clique aqui para acessar o projeto em execução](https://thaistardys.github.io/readboxd/)**
 
 > Um organizador de leituras pessoal e responsivo inspirado no design do Letterboxd. Adicione, edite, filtre e avalie seus livros favoritos em uma interface moderna e fluida.
 
